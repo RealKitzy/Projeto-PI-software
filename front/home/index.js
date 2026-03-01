@@ -5,11 +5,6 @@ const API = {
 
 const CURRENT_USER_KEY = "site_current_user";
 
-function getLocalUser() {
-  try { return JSON.parse(localStorage.getItem(CURRENT_USER_KEY) || "null"); }
-  catch { return null; }
-}
-
 async function postJson(url, body) {
   const res = await fetch(url, {
     method: "POST",
@@ -38,11 +33,6 @@ async function init() {
   const line = document.getElementById("userLine");
   btn.addEventListener("click", logout);
 
-  const localUser = getLocalUser();
-  if (localUser && localUser.email) {
-    line.textContent = `Conectado como: ${localUser.nome || "Usuário"} (${localUser.email})`;
-  }
-
   try {
     const { res, data } = await getJson(API.session);
     if (res.ok && data.success && data.user) {
@@ -50,7 +40,10 @@ async function init() {
       const perfil = u.perfil === "catador_cooperativa" ? "Catador/Cooperativa" : "Gerador";
       line.textContent = `Conectado como: ${u.nome} (${u.email}) • ${perfil}`;
       localStorage.setItem(CURRENT_USER_KEY, JSON.stringify(u));
+      return;
     }
   } catch {}
+
+  line.textContent = "Você não está autenticado.";
 }
 init();

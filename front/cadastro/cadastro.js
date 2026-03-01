@@ -68,8 +68,8 @@ async function handleRegister(e) {
     }
 
     localStorage.setItem(REMEMBER_EMAIL_KEY, email);
-
     setMessage("Conta criada. Redirecionando para o login...", "success");
+
     setTimeout(() => {
       window.location.href = "../login/login.html";
     }, 900);
