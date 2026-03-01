@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Login</title>
+  <link rel="stylesheet" href="./login.css" />
+</head>
+<body>
+  <main class="wrap">
+    <section class="card">
+      <header class="head">
+        <h1>Entrar</h1>
+        <p>Acesse sua conta com segurança.</p>
+      </header>
+
+      <form id="loginForm" class="form" autocomplete="on">
+        <label class="field">
+          <span>E-mail</span>
+          <input type="email" id="email" name="email" placeholder="voce@exemplo.com" required />
+        </label>
+
+        <label class="field">
+          <span>Senha</span>
+          <div class="row">
+            <input type="password" id="senha" name="senha" placeholder="Sua senha" required minlength="6" />
+            <button type="button" id="toggleSenha" class="ghost" aria-label="Mostrar senha">Mostrar</button>
+          </div>
+        </label>
+
+        <div class="line">
+          <label class="check">
+            <input type="checkbox" id="rememberMe" />
+            <span>Lembrar e-mail</span>
+          </label>
+          <a class="link" href="#" onclick="return false;" title="Implementar depois">Esqueci minha senha</a>
+        </div>
+
+        <button type="submit" id="btnEntrar" class="btn">Entrar</button>
+        <p id="msg" class="msg" role="status" aria-live="polite"></p>
+
+        <p class="foot">
+          Não tem conta?
+          <a class="link" href="../cadastro/cadastro.html">Cadastre-se</a>
+        </p>
+      </form>
+    </section>
+  </main>
+  <script src="./login.js"></script>
+</body>
+</html>
