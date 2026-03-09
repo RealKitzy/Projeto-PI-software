@@ -12,3 +12,7 @@ if (ini_get('session.use_cookies')) {
 session_destroy();
 
 json_response(['success' => true, 'message' => 'Logout realizado com sucesso.']);
+<<<<<<< HEAD
+=======
+?>
+>>>>>>> 07292da532e8a6136c47337d1511d7d2976f4e5c
